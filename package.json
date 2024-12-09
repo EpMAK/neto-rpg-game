@@ -1,0 +1,38 @@
+{
+  "name": "rpg-game",
+  "version": "1.0.0",
+  "description": "Learning JS",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EpMAK/neto-rpg-game.git"
+  },
+  "keywords": [
+    "js",
+    "study"
+  ],
+  "author": "EpMAK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EpMAK/neto-rpg-game/issues"
+  },
+  "homepage": "https://github.com/EpMAK/neto-rpg-game#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@eslint/js": "^9.16.0",
+    "eslint": "^9.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "globals": "^15.13.0"
+  },
+  "dependencies": {
+    "core-js": "^3.39.0"
+  }
+}

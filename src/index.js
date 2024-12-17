@@ -1,3 +1,6 @@
+import './css/style.css';
+import './js/game.js';
+
 const characters = [
     {name: 'мечник', health: 10},
     {name: 'маг', health: 100},

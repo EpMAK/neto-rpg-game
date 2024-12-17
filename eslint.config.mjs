@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import {rules} from "eslint-config-airbnb-base";
 
 export default [
   js.configs.recommended,
@@ -7,5 +8,6 @@ export default [
     plugins: {
       extends: ["airbnb-base/legacy"]
     },
-  }
+    rules: {"import/extensions": ["error","ignorePackages"]}
+  },
 ];

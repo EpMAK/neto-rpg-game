@@ -1,17 +1,21 @@
-import { Archer } from './chars/Archer.js'
-import { Crossbowman } from './chars/Crossbowman.js'
-import { Demiurge } from './chars/Demiurge.js'
-import { Dwarf } from './chars/Dwarf.js'
-import { Mage } from './chars/Mage.js'
-import { Player } from './chars/Player.js'
-import { Warrior } from './chars/Warrior.js'
+export async function play(players) {
 
-function play() {
-    const player = new Player();
-    const warrior = new Warrior();
-    const archer = new Archer();
-    const dwarf = new Dwarf();
-    const mage = new Mage();
-    const demiurge = new Demiurge();
-    const crossbowman = new Crossbowman();
+    let round = 1;
+    while (players.filter(player => !player.isDead()).length > 1) {
+        console.log(`\nРаунд ${round}:`);
+        console.log('Живые игроки:', players.filter(player => !player.isDead()).map(player => player.name));
+        console.log('Состояние игроков:', players.map(player => ({ name: player.name, life: player.life })));
+        for (const player of players) {
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 5 seconds
+            player.turn(players);
+        }
+        round++;
+    }
+
+    const winner = players.find(player => !player.isDead());
+    if (winner) {
+        console.log(`\n${winner.name} победил!`);
+    } else {
+        console.log('\nНичья!');
+    }
 }

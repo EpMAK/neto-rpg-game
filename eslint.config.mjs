@@ -1,13 +1,20 @@
 import js from "@eslint/js";
-import {rules} from "eslint-config-airbnb-base";
+import airbnbBase from 'eslint-config-airbnb-base';
+import importPlugin from "eslint-plugin-import";
+
+const { rules } = airbnbBase;
 
 export default [
+  {
+    ignores: ["**/node_modules/**", "**/dist/**", "**/coverage/**", "**/build/**", '**/__tests__/**', 'webpack.config.js', 'eslint.config.mjs'],
+  },
   js.configs.recommended,
   {
-    ignores: ["**/node_modules/**", "**/dist/**", "**/coverage/**", "**/build/**"],
     plugins: {
-      extends: ["airbnb-base/legacy"]
+      import: importPlugin,
     },
-    rules: {"import/extensions": ["error","ignorePackages"]}
+    rules: {
+      "import/extensions": ["error", "ignorePackages"],
+    },
   },
 ];
